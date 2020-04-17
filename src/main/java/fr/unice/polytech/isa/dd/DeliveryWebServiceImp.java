@@ -16,7 +16,7 @@ public class DeliveryWebServiceImp implements DeliveryWebService {
 
     @Override
 //    public Delivery getNextDelivery(Delivery delivery) {
-    public Delivery getNextDelivery() {
+    public Delivery getNextDelivery() throws Exception {
         System.out.println("Passage dans mon service 1");
         Delivery d = nextDelivery.getNextDelivery();
 //        System.out.println("le prix est " + d.getPrice());
