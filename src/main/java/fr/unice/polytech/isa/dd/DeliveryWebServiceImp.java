@@ -16,11 +16,11 @@ public class DeliveryWebServiceImp implements DeliveryWebService {
 
     @Override
 //    public Delivery getNextDelivery(Delivery delivery) {
-    public Delivery getNextDelivery() throws Exception {
+    public Delivery getNextDelivery() {
         System.out.println("Passage dans mon service 1");
-        Delivery d = nextDelivery.getNextDelivery();
+        Delivery delivery = nextDelivery.getNextDelivery();
 //        System.out.println("le prix est " + d.getPrice());
-        return d;
+        return delivery;
     }
 
     @Override

@@ -16,7 +16,7 @@ public interface DeliveryWebService {
 
     @WebMethod
     @WebResult(name="the_next_delivery")
-    Delivery getNextDelivery() throws Exception;
+    Delivery getNextDelivery();
 
     @WebMethod
     @WebResult(name="initialize_delivery_database")
