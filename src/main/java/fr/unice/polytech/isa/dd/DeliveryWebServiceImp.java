@@ -5,6 +5,7 @@ import fr.unice.polytech.isa.dd.entities.Delivery;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
+import java.util.List;
 
 @WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/dd/deliveryService")
 //@WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/dd/delivery")
@@ -13,19 +14,27 @@ import javax.jws.WebService;
 public class DeliveryWebServiceImp implements DeliveryWebService {
 
     @EJB private NextDeliveryInterface nextDelivery;
+    @EJB private DeliverySchedule deliverySchedule;
 
     @Override
-//    public Delivery getNextDelivery(Delivery delivery) {
     public Delivery getNextDelivery() {
-        System.out.println("Passage dans mon service 1");
+        System.out.println("Avoir la prochaine livraison");
         Delivery delivery = nextDelivery.getNextDelivery();
-//        System.out.println("le prix est " + d.getPrice());
         return delivery;
     }
 
     @Override
-    public void initializeDelivery() {
-        Database.getInstance().initializeDatabase();
+    public Delivery findDeliveryByDateAndHour(String d,String h) throws Exception {
+        System.out.println("Trouver une livraison par date et heure");
+        Delivery delivery = deliverySchedule.findDeliveryByDateAndHour(d,h);
+        return delivery;
+    }
+
+    @Override
+    public List<Delivery> getAllDeliveriesOfTheDate(String d){
+        System.out.println("Obtenir les livraisons d'une date donnée");
+        List<Delivery> delivery = deliverySchedule.all_deliveries_of_theDate(d);
+        return delivery;
     }
 
     //    @Override

@@ -2,8 +2,10 @@ package fr.unice.polytech.isa.dd;
 import fr.unice.polytech.isa.dd.entities.Delivery;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import java.util.List;
 
 @WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/dd/deliveryService")
 //@WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/dd/delivery")
@@ -19,8 +21,18 @@ public interface DeliveryWebService {
     Delivery getNextDelivery();
 
     @WebMethod
-    @WebResult(name="initialize_delivery_database")
-    void initializeDelivery();
+    @WebResult(name = "all_deliveries_of_theDate")
+    List<Delivery> getAllDeliveriesOfTheDate(@WebParam(name="delivery_date") String deliveryDate);
+
+
+    @WebMethod
+    @WebResult(name = "find_delivery")
+    Delivery findDeliveryByDateAndHour(@WebParam(name="delivery_date") String deliveryDate,
+                      @WebParam(name="hour_delivery") String hourDelivery) throws Exception;
+
+//    @WebMethod
+//    @WebResult(name="initialize_delivery_database")
+//    void initializeDelivery();
 
 //    @WebMethod
 //    @WebResult(name="the_next_enum")
