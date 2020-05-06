@@ -5,6 +5,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import java.text.ParseException;
 import java.util.List;
 
 @WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/dd/deliveryService")
@@ -18,7 +19,7 @@ public interface DeliveryWebService {
 
     @WebMethod
     @WebResult(name="the_next_delivery")
-    Delivery getNextDelivery();
+    Delivery getNextDelivery() throws ParseException;
 
     @WebMethod
     @WebResult(name = "all_deliveries_of_theDate")

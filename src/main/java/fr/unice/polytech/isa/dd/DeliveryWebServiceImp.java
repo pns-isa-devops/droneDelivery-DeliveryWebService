@@ -5,6 +5,7 @@ import fr.unice.polytech.isa.dd.entities.Delivery;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
+import java.text.ParseException;
 import java.util.List;
 
 @WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/dd/deliveryService")
@@ -17,7 +18,7 @@ public class DeliveryWebServiceImp implements DeliveryWebService {
     @EJB private DeliverySchedule deliverySchedule;
 
     @Override
-    public Delivery getNextDelivery() {
+    public Delivery getNextDelivery() throws ParseException {
         System.out.println("Avoir la prochaine livraison");
         Delivery delivery = nextDelivery.getNextDelivery();
         return delivery;
