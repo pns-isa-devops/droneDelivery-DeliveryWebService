@@ -25,6 +25,9 @@ public interface DeliveryWebService {
     @WebResult(name = "all_deliveries_of_theDate")
     List<Delivery> getAllDeliveriesOfTheDate(@WebParam(name="delivery_date") String deliveryDate);
 
+    @WebMethod
+    @WebResult(name = "delete_all")
+    boolean deleteAll();
 
     @WebMethod
     @WebResult(name = "find_delivery")

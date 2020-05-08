@@ -16,6 +16,8 @@ public class DeliveryWebServiceImp implements DeliveryWebService {
 
     @EJB private NextDeliveryInterface nextDelivery;
     @EJB private DeliverySchedule deliverySchedule;
+    @EJB private DeliveryInterface deliveryInterface;
+
 
     @Override
     public Delivery getNextDelivery() throws ParseException {
@@ -45,5 +47,11 @@ public class DeliveryWebServiceImp implements DeliveryWebService {
 //        System.out.println("le prix est " + d.getPrice());
 //        return d;
 //    }
+
+    @Override
+    public boolean deleteAll() {
+        System.out.println("deleteAll");
+        return deliveryInterface.deleteAll();
+    }
 
 }
